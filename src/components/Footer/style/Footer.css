@@ -1,0 +1,208 @@
+.footerContainer{
+    background: #29115B;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.footerContainer footer{
+    width: 100%;
+}
+
+.footerContainer footer .footerBottom{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background:#180B37;
+    box-sizing: border-box;
+    padding: 1em;
+}
+
+.footerContainer footer .footerBottom .copyright{
+    display: flex;
+    align-items: center;
+    width: 50%;
+}
+
+.footerContainer footer .footerBottom .copyright p{
+    color: white;
+    margin-left: 1em;
+    font-size: 0.8rem;
+}
+
+.footerContainer footer .footerBottom .socialMedia{
+    color: white;
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+}
+
+.footerContainer footer .footerBottom .socialMedia .socialMediaButtons{
+    display: flex;
+}
+
+.footerContainer footer .footerBottom .socialMedia .socialMediaButtons a{
+    padding: 1em;
+    background: white;
+    border-radius: 50%;
+    margin-left: 1em;
+    display: flex;
+    align-items: center;
+}
+
+.footerContainer footer .footerBottom .socialMedia .socialMediaButtons a svg{
+    width: 15px;
+    fill: white;
+}
+
+
+.footerContainer footer .footerBottom .socialMedia .socialMediaButtons .btnInstagram{
+    background: rgb(190, 8, 124);
+}
+
+.footerContainer footer .footerBottom .socialMedia .socialMediaButtons .btnYoutube{
+    background: rgb(221, 23, 23);
+}
+
+.footerContainer footer .footerBottom .socialMedia .socialMediaButtons .btnTwitter{
+    background: rgb(33, 130, 221);
+}
+
+.footerContainer footer .footerTop{
+    box-sizing: border-box;
+    padding: 0em 2em;
+    padding-bottom: 0em;
+    padding-top: 3em;
+}
+
+.footerContainer footer .footerTop .summaryConversahora p{
+    font-size: 0.8rem;
+    color: white;
+}
+
+.footerContainer footer .footerTop .menuFooter ul li a{
+    color: white;
+    font-size: 0.8rem;
+    line-height: 1.5;
+}
+
+.footerContainer footer .footerTop .menuFooter ul li a:hover{
+    color: var(--color-1);
+}
+
+.footerContainer footer .footerTop{
+    display: grid;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.footerContainer footer .footerTop .summaryConversahora{
+    width: 25%;
+}
+
+.footerContainer footer .footerTop .menuFooter{
+    width: 25%;
+}
+
+
+.menuFooter h4{
+    color: var(--color-1);
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+
+.footerMedium{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 2em 0em;
+    margin: 0em 2em;
+}
+
+.footerMedium div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footerMedium div span{
+    font-size: 1.3rem;
+    color: white;
+}
+
+
+.paySecurity img{
+    width: 100%;
+}
+
+.paySecurity{
+    display: flex;
+    flex-direction: column;
+}
+
+.paySecurity h4{
+    color: var(--color-1);
+    align-self: flex-start;
+
+}
+
+@media screen and (max-width: 800px){
+
+    .footerContainer footer .footerTop .summaryConversahora{
+        width: 100%;
+    }
+
+    .footerContainer footer .footerTop .menuFooter{
+        width:30%;
+        box-sizing: border-box;
+    }
+
+    .footerContainer footer .footerTop ul{
+        padding-inline-start: 0px;
+    }
+
+
+    .footerContainer footer .footerMedium{
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 3em 2em;
+    }
+
+    .footerContainer footer .footerBottom{
+        flex-direction: column;
+    }
+
+    .footerContainer footer .footerBottom .socialMedia{
+        width: 100%;
+        justify-content: center;
+        margin-top: 1em;
+    }
+
+    .footerContainer footer .footerBottom .copyright{
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+
+@media screen and (max-width: 620px){
+
+
+    .footerContainer footer .footerTop .menuFooter{
+        width:100%;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+    }
+
+
+    .footerContainer footer .footerTop ul{
+        padding-inline-start: 0px;
+    }
+
+    .footerContainer footer .footerMedium{
+        grid-template-columns: 1fr;
+        grid-gap: none;
+    }
+    
+}

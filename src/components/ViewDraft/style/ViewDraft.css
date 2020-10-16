@@ -1,0 +1,13 @@
+.viewDraftContainer{
+    background: #aaa;
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.viewDraftContainer .viewDraftTitle{
+    font-size: 3rem;
+    color: #333;
+    text-transform: uppercase;
+}

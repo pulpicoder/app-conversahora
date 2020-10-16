@@ -1,0 +1,28 @@
+.resultsQueryContainer{
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.sidebarSearch{
+    width: 30%;
+    background: #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.resultsQuery{
+width: 70%;
+background: #aaa;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.resultsQueryContainer div h4{
+    text-transform: uppercase;
+    color: #444;
+    font-size: 2rem;
+}

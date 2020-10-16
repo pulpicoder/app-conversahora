@@ -1,0 +1,340 @@
+.navbarContainer{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0em 1em;
+    background: white;
+    box-shadow: 5px 8px 8px rgba(0,0,0,0.3);
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    height: 10vh;
+}
+
+.navbarContainer .navbarWrapper{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.navbarContainer .navbarWrapper .logoContainer{
+    width: 10%;
+}
+
+
+.navbarContainer .navbarWrapper .navigationContainer{
+    width: 55%;
+    height: 100%;
+}
+
+.navbarContainer .navbarWrapper .navigationContainerLogined{
+    width: 70%;
+}
+
+.navbarContainer .navbarWrapper .navigationContainer nav{
+    width: 100%;
+    height: 100%;
+}
+
+.navbarContainer .navbarWrapper .navigationContainer nav .menuList{
+    width: 100%;
+    display: flex;
+    list-style: none;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.navbarContainer .navbarWrapper .navigationContainer nav .menuList li{
+    margin: 0em 1em;
+    height: 100%;
+}
+
+.navbarContainer .navbarWrapper .navigationContainer nav .menuList .search-button{
+    margin-right: auto;
+}
+
+.navbarContainer .navbarWrapper .navigationContainer nav .menuList li a, .navbarContainer .navbarWrapper .navigationContainer nav .menuList li button{
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    color: var(--color-6);
+    cursor: pointer;
+    height: 95%;
+    display: flex;
+    align-items: center;
+    border: none;
+    outline: none;
+    background: white;
+}
+
+.navbarContainer .navbarWrapper .navigationContainer nav .menuList li a:hover, .navbarContainer .navbarWrapper .navigationContainer nav .menuList li button:hover{
+    color: var(--color-5);
+    font-weight: bold;
+}
+
+.navbarContainer .navbarWrapper .navigationContainer nav .menuList li a:hover{
+    border-bottom: 4px solid var(--color-1);;
+}
+
+.navbarContainer .navbarWrapper .navigationContainer nav .menuList li .submenuHelp{
+    position: absolute;
+    display: none;
+    flex-direction: column;
+    top: 9vh;
+    background: white;
+    box-sizing: border-box;
+    right: 0;
+    width: 200px;
+}
+
+.navbarContainer .navbarWrapper .navigationContainer nav .menuList li .submenuHelp:hover{
+    display: flex;
+}
+
+.navbarContainer .navbarWrapper .navigationContainer nav .menuList li.help-button button:hover + .submenuHelp , .navbarContainer .navbarWrapper .navigationContainer nav .menuList li.help-button button:focus  + .submenuHelp{
+    display: flex;
+}
+
+.navbarContainer .navbarWrapper .navigationContainer nav .menuList li.help-button{
+    position: relative;
+}
+
+
+.navbarContainer .navbarWrapper .navigationContainer nav .menuList li .submenuHelp li a{
+    text-align: end;
+    font-weight: normal;
+    width: 100%;
+    display: inline-block;
+    padding: 0.3em 0em;
+    font-size: 0.8rem;
+    color: var(--color-5);
+    text-transform: capitalize;
+    padding-right: 0.5em;
+    box-sizing: border-box;
+    padding-bottom: 0.5em;
+}
+
+.navbarContainer .navbarWrapper .navigationContainer nav .menuList li .submenuHelp li{
+    margin: 0;
+}
+
+.navbarContainer .navbarWrapper .navigationContainer nav .menuList li .submenuHelp li a:hover{
+    border-right: 4px solid var(--color-1);
+    color: var(--color-3);
+    font-weight: bold;
+    border-bottom: none;
+}
+
+
+.navbarLogin{
+    width: 35%;
+    box-sizing: border-box;
+}
+
+.navbarLoginLogined{
+    width: 20%;
+}
+
+.navbarContainerMovil{
+    display: none;
+    width: 100%;
+    top: 90vh;
+    left: 0;
+    position: fixed;
+    flex-wrap: wrap;
+    transition: all 0.3s;
+}
+
+.navbarContainerMovil .NavbarMovil{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 0em 1em;
+    height: 10vh;
+    background: white;
+}
+
+.navbarContainerMovil  .menuListMovil{
+    height: 90vh;
+    width: 100%;
+    background: var(--color-4);
+    margin-top: 0;
+}
+
+
+.navbarContainerMovil .NavbarMovil .ToogleNavMovil{
+    display: flex;
+    align-items: center;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    z-index: 100;
+}
+
+.navbarContainerMovil .NavbarMovil .ToogleNavMovil div{
+    margin-left: 1em;
+}
+
+.navbarContainerMovil .NavbarMovil .ToogleNavMovil svg{
+    width: 18px;
+    transform: rotate(180deg);
+}
+
+
+.navbarContainerMovil .NavbarMovil .LoginNavMovil button{
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 0.8rem;
+    margin-left: 1em;
+    color: var(--color-4);
+    font-family: inherit;
+}
+
+.navbarContainerMovil .NavbarMovil .LoginNavMovil{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding-left: 1em;
+}
+
+
+.navbarContainerMovil .NavbarMovil .LoginNavMovil a{
+    font-size: 0.8rem;
+    color: var(--color-6);
+    font-weight: bold;
+}
+
+.navbarContainerMovil .NavbarMovil .LoginNavMovil a svg{
+    width: 15px;
+    height: 15px;
+    margin-right: 0.5em;
+    fill: var(--color-6);
+}
+
+.popupLogin{
+    position: fixed;
+    top: 15vh;
+    border-radius: 2em;
+    left: 10%;
+    width: 80%;
+    height: 70vh;
+    background: white;
+    display: none;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+}
+
+.popupLogin .closePopupLogin{
+    align-self: flex-end;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.popupLogin .closePopupLogin svg{
+    width: 20px;
+    height: 20px;
+    fill: black;
+    margin: 1.5em;
+}
+
+.popupLogin .optionsAuthenticationContainer{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.popupLogin .optionsAuthenticationContainer button svg{
+    width: 20px;
+    height: 20px;
+    margin-left: 1em;
+}
+
+.popupLogin .optionsAuthenticationContainer button{
+    width: 70%;
+    font-family: inherit;
+    font-weight: bold;
+    border: none;
+    margin: auto;
+    padding: 1em;
+    display: flex;
+    justify-content: center;
+    border-radius: 2em;
+    margin-bottom: 1.5em;
+    cursor: pointer;
+    box-shadow: 2px 4px 4px rgba(50, 50 ,50, 0.5);
+
+}
+
+.popupLogin .optionsAuthenticationContainer button:nth-child(2n), .popupLogin .optionsAuthenticationContainer button:nth-child(3n){
+    color: white;
+}
+
+.popupLogin h3{
+    font-size: 1.5rem;
+    text-align: center;
+    width: 80%;
+}
+
+.open{
+    display: flex;
+}
+
+.openNavbarContainerMovil{
+    top: 0;
+}
+
+.openNavbarContainerMovil .NavbarMovil .ToogleNavMovil svg{
+    transform: rotate(360deg);
+}
+
+.menuListMovil{
+    padding: 0;
+}
+
+.menuListMovil li:nth-child(2n){
+    background: #894aee;
+}
+
+.menuListMovil li{
+    padding: 1em 0.5em;
+}
+
+.menuListMovil li a{
+    color: white;
+    font-size: 1.5rem;
+}
+
+@media screen and (max-width:1150px){
+    .navbarContainer .navbarWrapper .navigationContainer nav .menuList li a, .navbarContainer .navbarWrapper .navigationContainer nav .menuList li button{
+        font-size: 0.7rem;
+    }
+
+    .navbarContainer .navbarWrapper .navigationContainer{
+        width: 50%;
+    }
+
+    .navbarLogin{
+        width: 40%;
+    }
+}
+
+@media screen and (max-width: 880px){
+    .navbarContainer{
+        display: none;
+    }
+
+    .navbarContainerMovil{
+        display: flex;
+    }
+}
