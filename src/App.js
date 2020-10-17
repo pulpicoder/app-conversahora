@@ -2,7 +2,7 @@
 import React, {useState, useEffect } from 'react';
 
 // Import Components
-import {Switch, Route} from 'react-router-dom';
+import {Switch, Route, Redirect} from 'react-router-dom';
 import Footer from './components/Footer/Footer';
 import Navbar from './components/Navbar/Navbar';
 import ViewDraft from './components/ViewDraft/ViewDraft';
@@ -80,12 +80,16 @@ function App() {
   return (
     <LoadingContext.Provider value={loading}>
         <UserContext.Provider value={user}>
-          <div className="App">
+          <div className="App" id="App">
             {loading.isLoading && <Loading /> }
             <Navbar />
             <Switch>
               <Route exact path='/'>
-                <ViewDraft title='Home Page' />
+                { 
+                user.isLogin 
+                  ? <Redirect to='/account'/> 
+                  : <ViewDraft title='Home Page' />
+                }
               </Route>
 
               <Route exact path='/search-teacher'>
@@ -121,15 +125,35 @@ function App() {
               </Route>
 
               <Route exact path='/billing'>
-                <ViewDraft title='Creditos y Facturación' />
+              {
+               !user.isLogin
+                ? <Redirect to='/'/> 
+                : <ViewDraft title='Creditos y Facturación' />
+              }
               </Route>
 
               <Route exact path='/account'>
-                <ViewDraft title='Mi Cuenta y Perfil' />
+              {
+               !user.isLogin
+                ? <Redirect to='/'/> 
+                : <ViewDraft title='Mi Cuenta y Perfil' />
+              }
               </Route>
 
               <Route exact path='/classes'>
-                <ViewDraft title='Salon de Clases' />
+              {
+               !user.isLogin
+                ? <Redirect to='/'/> 
+                : <ViewDraft title='Salon de Clases' />
+              }
+              </Route>
+
+              <Route exact path='/setting-movil'>
+              {
+               !user.isLogin
+                ? <Redirect to='/'/> 
+                : <ViewDraft title='Opciones de usuario en Movil' />
+              }
               </Route>
 
               <Route path=''>

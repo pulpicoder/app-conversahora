@@ -13,6 +13,8 @@ import {ReactComponent as AppleIcon} from '../../assets/apple.svg';
 import {ReactComponent as FacebookIcon} from '../../assets/facebook.svg';
 import {ReactComponent as GoogleIcon} from '../../assets/google.svg';
 import {ReactComponent as CancelIcon} from '../../assets/cancel.svg';
+import {ReactComponent as ClassesIcon} from '../../assets/classes.svg';
+import {ReactComponent as SettingIcon} from '../../assets/setting.svg';
 import LoadingContext from '../Loading/LoadingContext';
 import firebase from 'firebase/app';
 import {auth} from '../../firebase';
@@ -30,13 +32,17 @@ const Navbar = ()=>{
         const provider = new firebase.auth.GoogleAuthProvider();
 
         try{
-            const result = await auth.signInWithPopup(provider);
-            loadingContext.updateLoading();
             console.log('...Abriendo ventana emergente para loguear');
+            const result = await auth.signInWithPopup(provider);
             console.log(result);
+            loadingContext.updateLoading();
+            console.log('Cargando.....');
+            onClosePopup();
+            console.log('Cerrando Popup Login');
         }
         catch(error){
-            console.log(error)
+            console.log(error);
+            onOpenPopup();
         }
     }
 
@@ -60,6 +66,12 @@ const Navbar = ()=>{
         else if(navbarContaineMovil.className === 'navbarContainerMovil openNavbarContainerMovil'){
             navbarContaineMovil.className = 'navbarContainerMovil';
         }
+    }
+
+    const onclickMenuItem = ()=>{
+        onclickMenuList();
+        window.scrollTo(0, 0);
+
     }
 
     return(
@@ -120,7 +132,7 @@ const Navbar = ()=>{
                         <Logo />
                     </button>
                     <div className='LoginNavMovil'>
-                        <Link to='/search-teacher'>
+                        <Link to='/search-teacher' onClick={()=> window.scrollTo(0, 0)}>
                             <SearchIcon />
                             Profesores
                         </Link>
@@ -128,7 +140,8 @@ const Navbar = ()=>{
                             user.isLogin
                             ? (
                                 <div className='userNavMovil'>
-                                    <Link to='/classes'>
+                                    <Link to='/classes' onClick={()=> window.scrollTo(0, 0)}>
+                                        <ClassesIcon />
                                         Clases
                                     </Link>
                                     <img src={user.user.photoURL} alt=""/>
@@ -144,44 +157,64 @@ const Navbar = ()=>{
                     </div>
                 </div>
                 <ul className='menuListMovil'>
+                    {
+                        user.isLogin && (
+                            <div className='optionsUserMovil'>
+                                <span>
+                                    {user.user.displayName}
+                                </span>
+                                <Link to='/setting-movil' onClick={onclickMenuItem}>
+                                    <SettingIcon />
+                                </Link>
+                            </div>
+                        ) 
+                    }
                     <li>
-                        <Link to='/faq' onClick={onclickMenuList}>
+                        <Link to='/faq' onClick={onclickMenuItem}>
                             Preguntas Frecuentes
+                            <Down />
                         </Link>
                     </li>
                     <li>
-                        <Link to='/about-us'onClick={onclickMenuList}>
+                        <Link to='/about-us'onClick={onclickMenuItem}>
                             Nosotros
+                            <Down />
                         </Link>
                     </li>
                     <li>
-                        <Link to='/blog' onClick={onclickMenuList}>
+                        <Link to='/blog' onClick={onclickMenuItem}>
                             Blog
+                            <Down />
                         </Link>
                     </li>
                     <li>
-                        <Link to='/faq' onClick={onclickMenuList}>
+                        <Link to='/faq' onClick={onclickMenuItem}>
                             Enseña
+                            <Down />
                         </Link>
                     </li>
                     <li>
-                        <Link to='/faq' onClick={onclickMenuList}>
+                        <Link to='/faq' onClick={onclickMenuItem}>
                             Aprende
+                            <Down />
                         </Link>
                     </li>
                     <li>
-                        <Link to='/privacy-policies' onClick={onclickMenuList}>
+                        <Link to='/privacy-policies' onClick={onclickMenuItem}>
                             Privacidad
+                            <Down />
                         </Link>
                     </li>
                     <li>
-                        <Link to='/terms-and-conditionals' onClick={onclickMenuList}>
+                        <Link to='/terms-and-conditionals' onClick={onclickMenuItem}>
                             Terminos
+                            <Down />
                         </Link>
                     </li>
                     <li>
                         <button >
                             Ayuda
+                            <Down />
                         </button>
                         <ul>
 
@@ -189,26 +222,28 @@ const Navbar = ()=>{
                     </li>
                 </ul>
                 <div class='popupLogin'>
-                    <button className='closePopupLogin' onClick={onClosePopup}>
-                        <CancelIcon />
-                    </button>
-                    <h3>Ingresa o Registrarse con las siguiestes opciones</h3>
-                    <div className='optionsAuthenticationContainer'>
-                        <button className='btnGoogle' onClick={onClickGoogle}>
-                            Google
-                            <GoogleIcon />
+                    <div className='formLogin'>
+                        <button className='closePopupLogin' onClick={onClosePopup}>
+                            <CancelIcon />
                         </button>
+                        <h3>Ingresa o Registrarse con las siguiestes opciones</h3>
+                        <div className='optionsAuthenticationContainer'>
+                            <button className='btnGoogle' onClick={onClickGoogle}>
+                                Google
+                                <GoogleIcon />
+                            </button>
 
-                        <button className='btnFacebook'>
-                            Facebook
-                            <FacebookIcon />
-                        </button>
+                            <button className='btnFacebook'>
+                                Facebook
+                                <FacebookIcon />
+                            </button>
 
-                        <button className='btnApple'>
-                            Apple ID
-                            <AppleIcon />
-                        </button>
-                     </div>
+                            <button className='btnApple'>
+                                Apple ID
+                                <AppleIcon />
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </>

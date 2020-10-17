@@ -1,6 +1,6 @@
 .viewDraftContainer{
     background: #aaa;
-    height: 60vh;
+    height: 90vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -10,4 +10,12 @@
     font-size: 3rem;
     color: #333;
     text-transform: uppercase;
+}
+
+@media screen and (max-width: 880px){
+    .viewDraftContainer .viewDraftTitle{
+        font-size: 2rem;
+        text-align: center;
+    }
+    
 }

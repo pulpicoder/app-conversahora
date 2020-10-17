@@ -35,8 +35,11 @@ const SearchForm = ()=>{
         <div className='searchContainer'>
                 <h2>Encuentra el profesor que necesitas</h2>
                 <div className='SearchForm'>
+                    <h3 className='SearchFormTitle'>
+                         Encuentra el profesor que necesitas
+                    </h3>
                     <div className='filter'>
-                        <button>
+                        <button className='filterButton'>
                             <div className='indication'>
                                 <LanguageIcon />
                                 {Query.filters.language ? Query.filters.language : 'Idiomas'}
@@ -50,7 +53,7 @@ const SearchForm = ()=>{
                         </div>
                     </div>
                     <div className='filter'>
-                        <button>
+                        <button className='filterButton'>
                            <div className='indication'>
                                 <BookIcon />
                                 {Query.filters.verification ? Query.filters.verification : 'Nivel de Certificación'}
@@ -66,7 +69,7 @@ const SearchForm = ()=>{
                         </div>
                     </div>
                     <div className='filter'>
-                        <button>
+                        <button className='filterButton'>
                              <div className='indication'>
                                 <LocationIcon />
                                 {Query.filters.location ? Query.filters.location : 'País'}

@@ -200,6 +200,7 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     box-sizing: border-box;
     padding-left: 1em;
 }
@@ -219,34 +220,43 @@
 }
 
 .popupLogin{
-    position: fixed;
-    top: 15vh;
-    border-radius: 2em;
-    left: 10%;
-    width: 80%;
-    height: 70vh;
-    background: white;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
     display: none;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.popupLogin .formLogin{
+    border-radius: 2em;
+    width: 80%;
+    height: 400px;
+    background: white;
+    display: flex;
     flex-wrap: wrap;
     flex-direction: column;
     align-items: center;
 }
 
-.popupLogin .closePopupLogin{
+.popupLogin .formLogin .closePopupLogin{
     align-self: flex-end;
     background: transparent;
     border: none;
     cursor: pointer;
 }
 
-.popupLogin .closePopupLogin svg{
+.popupLogin .formLogin .closePopupLogin svg{
     width: 20px;
     height: 20px;
     fill: black;
     margin: 1.5em;
 }
 
-.popupLogin .optionsAuthenticationContainer{
+.popupLogin .formLogin .optionsAuthenticationContainer{
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -254,13 +264,13 @@
     margin-bottom: auto;
 }
 
-.popupLogin .optionsAuthenticationContainer button svg{
+.popupLogin .formLogin .optionsAuthenticationContainer button svg{
     width: 20px;
     height: 20px;
     margin-left: 1em;
 }
 
-.popupLogin .optionsAuthenticationContainer button{
+.popupLogin .formLogin .optionsAuthenticationContainer button{
     width: 70%;
     font-family: inherit;
     font-weight: bold;
@@ -276,11 +286,11 @@
 
 }
 
-.popupLogin .optionsAuthenticationContainer button:nth-child(2n), .popupLogin .optionsAuthenticationContainer button:nth-child(3n){
+.popupLogin .formLogin .optionsAuthenticationContainer button:nth-child(2n), .popupLogin .formLogin .optionsAuthenticationContainer button:nth-child(3n){
     color: white;
 }
 
-.popupLogin h3{
+.popupLogin .formLogin h3{
     font-size: 1.5rem;
     text-align: center;
     width: 80%;
@@ -307,12 +317,92 @@
 }
 
 .menuListMovil li{
-    padding: 1em 0.5em;
+    padding: 1em;
 }
 
-.menuListMovil li a{
+.menuListMovil li a, .menuListMovil li button{
     color: white;
     font-size: 1.5rem;
+    background: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.menuListMovil li a svg, .menuListMovil li button svg{
+    width: 20px;
+    height: 20px;
+    fill: white;
+    transform: rotate(-90deg);
+}
+
+.menuListMovil li:hover{
+border-right: 4px solid var(--color-1);
+}
+
+.menuListMovil li:hover a, .menuListMovil li:hover button{
+    color: var(--color-1);
+
+}
+
+.userNavMovil img{
+    width: 40px;
+    border-radius: 50%;
+    margin-left: 1em;
+}
+
+.LoginNavMovil .userNavMovil{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.LoginNavMovil .userNavMovil a svg{
+    width: 20px !important;
+    height: 20px !important;
+    align-self: center;
+}
+
+.LoginNavMovil .userNavMovil a{
+    align-content: center;
+    display: flex;
+}
+
+.LoginNavMovil .userNavMovil a:hover, .NavbarMovil .LoginNavMovil a:hover{
+    color: var(--color-3);
+}
+
+.optionsUserMovil{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding:  0.3em 1em;
+    background: #29115B;
+}
+
+.optionsUserMovil a svg{
+    fill: white;
+    width: 20px;
+    height: 30px;
+}
+
+.optionsUserMovil a:hover svg{
+    fill: var(--color-1);
+}
+
+.optionsUserMovil span{
+    color: white;
+}
+
+.LoginNavMovil .userNavMovil a:hover svg, .ToogleNavMovil:hover svg, .NavbarMovil .LoginNavMovil a:hover svg{
+    fill: var(--color-3);
 }
 
 @media screen and (max-width:1150px){
@@ -321,11 +411,21 @@
     }
 
     .navbarContainer .navbarWrapper .navigationContainer{
-        width: 50%;
+        width: 72%;
     }
 
     .navbarLogin{
-        width: 40%;
+        width: 28%;
+    }
+}
+
+@media screen and (max-width:1000px){
+    .navbarContainer .navbarWrapper .navigationContainer{
+        width: 68%;
+    }
+
+    .navbarLogin{
+        width: 32%;
     }
 }
 
@@ -337,4 +437,50 @@
     .navbarContainerMovil{
         display: flex;
     }
+
+    .popupLogin .formLogin h3{
+        font-size: 1.2rem;
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 600px){
+
+    .popupLogin .formLogin .optionsAuthenticationContainer button{
+        width: 80%;
+    }
+
+    .popupLogin .formLogin{
+        height: 500px;
+        width: 90%;
+
+    }
+}
+
+
+@media screen and (max-width: 450px){
+    .navbarContainerMovil .NavbarMovil .LoginNavMovil a{
+        font-size: 0.7rem;
+    }
+
+    .navbarContainerMovil .NavbarMovil .LoginNavMovil a svg{
+        width: 14px;
+        height: 14px;
+    }
+
+    .navbarContainerMovil .NavbarMovil .LoginNavMovil button{
+        font-size: 0.7rem;
+    }
+
+    
+    .navbarContainerMovil .NavbarMovil .ToogleNavMovil svg{
+        width: 15px;
+        height: 15px;
+    }
+
+    .navbarContainerMovil .NavbarMovil .ToogleNavMovil div{
+        width: 30px;
+        height: 30px;
+    }
+
 }

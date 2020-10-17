@@ -1,6 +1,11 @@
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
+  scroll-behavior: smooth;
+}
+
+html{
+  scroll-behavior: smooth;
 }
 
 a{
@@ -25,3 +30,4 @@ button{
   --color-5: #404041;
   --color-6: #6D6E70;
 }
+
