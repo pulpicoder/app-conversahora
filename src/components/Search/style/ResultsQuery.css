@@ -7,22 +7,112 @@
 
 .sidebarSearch{
     width: 30%;
+    left: 0;
+    top: 10vh;
     background: #ccc;
     display: flex;
     justify-content: center;
     align-items: center;
+    position: absolute;
+    height: 90vh;
+    transition: all 0.5s;
+}
+
+.toggleSidebar{
+    right: -30px;
+    width: 60px;
+    position: absolute;
+    top: 1em;
+    padding: 1em 0em;
+    border-radius: 1em;
+    border: none;
+    background: var(--color-6);
+}
+
+.toggleSidebar:hover{
+    background: var(--color-3);
+    cursor: pointer;
+}
+
+.toggleSidebar svg{
+    width: 15px;
+    height: 15px;
+    transform: rotate(90deg);
+    fill: white;
+    transition: all 0.5s;
 }
 
 .resultsQuery{
-width: 70%;
+width: 100%;
 background: #aaa;
 display: flex;
 justify-content: center;
 align-items: center;
+transition: all 0.1s;
 }
 
 .resultsQueryContainer div h4{
     text-transform: uppercase;
     color: #444;
     font-size: 2rem;
+}
+
+.closeSidebarSearch{
+    left: -30%;
+}
+
+
+.closeSidebarSearch .toggleSidebar{
+    right: -70px;
+}
+
+.closeSidebarSearch .toggleSidebar svg{
+    transform: rotate(-90deg);
+}
+
+
+@media screen and (max-width: 1200px){
+    .sidebarSearch{
+        width: 50%;
+}
+
+.closeSidebarSearch{
+    left: -50%;
+}
+
+}
+
+@media screen and (max-width: 880px){
+
+    .resultsQueryContainer{
+        flex-wrap: wrap;
+    }
+
+    .resultsQueryContainer{
+        width: 100%;
+        height: 90vh;
+        display: flex;
+        flex-wrap: nowrap;
+    }
+    
+    .sidebarSearch{
+        width: 100%;
+        height: 90vh;
+        top: 0;
+        left: 0;
+        background: #ccc;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.3s;
+        position: fixed;
+    }
+
+    .closeSidebarSearch{
+        left: -100%;
+    }
+
+    .toggleSidebar{
+        right: 10px;
+    }
 }

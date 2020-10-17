@@ -236,9 +236,10 @@
     .optionsFilter{
         width: 90%;
     }
+
 }
 
-@media screen and (max-width:500px){
+@media screen and (max-width:600px){
     .SearchForm .SearchFormTitle{
         font-size: 1.2rem;
         text-align: center;
@@ -246,6 +247,7 @@
 
     .SearchForm .filter .filterButton{
         width: 100%;
+        font-size: 0.8rem;
     }
 
     .SearchForm{

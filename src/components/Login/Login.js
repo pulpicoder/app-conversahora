@@ -48,7 +48,7 @@ const Login = ()=>{
 
     const loginWithoutUser =(
     <div className='loginContainer'>
-        <h4>Ingrese o Registrse con</h4>
+        <h4>Ingrese con</h4>
         <div className='optionsAuthenticationContainer'>
             <button className='btnGoogle' onClick={onClickGoogle}>
                 <GoogleIcon />

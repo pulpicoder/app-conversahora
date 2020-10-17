@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useContext} from 'react';
+import React, {useContext} from 'react';
 
 import {ReactComponent as DownIcon} from '../../assets/down.svg';
 import {ReactComponent as BookIcon} from '../../assets/open-book.svg';

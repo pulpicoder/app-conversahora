@@ -24,9 +24,23 @@ import {auth} from '../../firebase';
 
 const Navbar = ()=>{
 
-    const user = useContext(UserContext);
 
+    const user = useContext(UserContext);
+    
     const loadingContext = useContext(LoadingContext);
+
+    const setCurrentPathName = () => {
+        let pathname = window.location.pathname;
+        let links = document.querySelectorAll('.linkMenu');
+
+        for( let link of links ){
+            if(link.attributes.href.value === pathname){
+                link.className = 'linkMenu active';
+            }else{
+                link.className = 'linkMenu';
+            }
+        }
+    } 
 
     const onClickGoogle = async ()=>{
         const provider = new firebase.auth.GoogleAuthProvider();
@@ -47,6 +61,10 @@ const Navbar = ()=>{
     }
 
     const onOpenPopup = ()=>{
+        let  navbarContaineMovil = document.querySelector('.navbarContainerMovil');
+        if(navbarContaineMovil.className === 'navbarContainerMovil openNavbarContainerMovil'){
+            navbarContaineMovil.className = 'navbarContainerMovil';
+        }
         const popup = document.querySelector('.popupLogin');
         popup.className += ' open'; 
     }
@@ -55,6 +73,22 @@ const Navbar = ()=>{
         const popup = document.querySelector('.popupLogin');
         popup.className = 'popupLogin'; 
 
+    }
+
+    const logoutHandle = async()=>{
+        try{
+            let  navbarContaineMovil = document.querySelector('.navbarContainerMovil');
+            if(navbarContaineMovil.className === 'navbarContainerMovil openNavbarContainerMovil'){
+                navbarContaineMovil.className = 'navbarContainerMovil';
+            }
+            await auth.signOut();
+            loadingContext.updateLoading();
+            console.log('Usuario cerro sesion');
+
+        }
+        catch(error){
+            console.log(error);
+        }
     }
 
     const onclickMenuList = ()=>{
@@ -69,13 +103,17 @@ const Navbar = ()=>{
     }
 
     const onclickMenuItem = ()=>{
-        onclickMenuList();
+        let  navbarContaineMovil = document.querySelector('.navbarContainerMovil');
+        if(navbarContaineMovil.className === 'navbarContainerMovil openNavbarContainerMovil'){
+            navbarContaineMovil.className = 'navbarContainerMovil';
+        }
         window.scrollTo(0, 0);
 
     }
 
     return(
         <>
+            {setCurrentPathName()}
             <div className='navbarContainer'>
                 <div className='navbarWrapper'>
                     <div className='logoContainer'>
@@ -85,11 +123,15 @@ const Navbar = ()=>{
                         <nav>
                             <ul className='menuList'>
                                 <li className='search-button'>
-                                <Link to='/search-teacher'>Buscar Profesores</Link> 
+                                <Link to='/search-teacher' className='linkMenu' onClick={setCurrentPathName}>
+                                    Buscar Profesores
+                                </Link> 
                                 </li>
                                 <li>
 
-                                <Link to='/about-us'>Sobre Nosotros</Link> 
+                                <Link to='/about-us' className='linkMenu' onClick={setCurrentPathName}>
+                                    Sobre Nosotros
+                                </Link> 
                                 </li>
                                 <li>
                                     <a 
@@ -132,7 +174,7 @@ const Navbar = ()=>{
                         <Logo />
                     </button>
                     <div className='LoginNavMovil'>
-                        <Link to='/search-teacher' onClick={()=> window.scrollTo(0, 0)}>
+                        <Link to='/search-teacher' onClick={onclickMenuItem}>
                             <SearchIcon />
                             Profesores
                         </Link>
@@ -140,7 +182,7 @@ const Navbar = ()=>{
                             user.isLogin
                             ? (
                                 <div className='userNavMovil'>
-                                    <Link to='/classes' onClick={()=> window.scrollTo(0, 0)}>
+                                    <Link to='/classes' onClick={onclickMenuItem}>
                                         <ClassesIcon />
                                         Clases
                                     </Link>
@@ -150,7 +192,7 @@ const Navbar = ()=>{
 
                             : (
                                 <button onClick={onOpenPopup}>
-                                    Ingresar o Registrarse
+                                    Ingresar
                                 </button>
                             )
                         }
@@ -163,6 +205,9 @@ const Navbar = ()=>{
                                 <span>
                                     {user.user.displayName}
                                 </span>
+                                <button className='buttonLogoutMovil' onClick={logoutHandle}>
+                                    Cerrar Sesión
+                                </button>
                                 <Link to='/setting-movil' onClick={onclickMenuItem}>
                                     <SettingIcon />
                                 </Link>
@@ -221,7 +266,7 @@ const Navbar = ()=>{
                         </ul>
                     </li>
                 </ul>
-                <div class='popupLogin'>
+                <div className='popupLogin'>
                     <div className='formLogin'>
                         <button className='closePopupLogin' onClick={onClosePopup}>
                             <CancelIcon />

@@ -1,5 +1,5 @@
 // Import React
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 
 // Import styles of component Footer
 import './style/Search.css';

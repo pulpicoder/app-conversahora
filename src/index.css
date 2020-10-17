@@ -31,3 +31,6 @@ button{
   --color-6: #6D6E70;
 }
 
+body::-webkit-scrollbar{
+  display: none;
+}
